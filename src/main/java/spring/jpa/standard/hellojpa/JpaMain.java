@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import spring.jpa.SpringJpaApplication;
+import spring.jpa.standard.hellojpa.entity.Member;
 
 /**
  * 1. EntityManagerFactory 애플리케이션 전체에서 하나만 생성해서 공유

@@ -1,4 +1,4 @@
-package spring.jpa.standard.hellojpa;
+package spring.jpa.standard.hellojpa.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

@@ -6,7 +6,7 @@ import jakarta.persistence.EntityTransaction;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import spring.jpa.SpringJpaApplication;
-import spring.jpa.standard.hellojpa.Member;
+import spring.jpa.standard.hellojpa.entity.Member;
 
 /**
  * @Entity

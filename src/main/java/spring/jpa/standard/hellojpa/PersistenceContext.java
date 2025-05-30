@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import spring.jpa.SpringJpaApplication;
+import spring.jpa.standard.hellojpa.entity.Member;
 
 /**
  * 영속성 컨텍스트
