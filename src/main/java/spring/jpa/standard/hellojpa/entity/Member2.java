@@ -6,6 +6,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
+import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import spring.jpa.standard.hellojpa.type.RoleType;
@@ -31,6 +32,7 @@ import java.util.Date;
  *   - @Transient   : 특정 필드 컬럼 매핑 X
  */
 @Entity
+@Table(name = "member2")
 public class Member2 {
 
     @Id
