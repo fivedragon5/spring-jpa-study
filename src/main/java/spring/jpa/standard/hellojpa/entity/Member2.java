@@ -31,7 +31,7 @@ import java.util.Date;
  *      - Type이 String 이면 CLOB 아닐 경우 BLOB
  *   - @Transient   : 특정 필드 컬럼 매핑 X
  */
-@Entity
+//@Entity
 @Table(name = "member2")
 public class Member2 {
 

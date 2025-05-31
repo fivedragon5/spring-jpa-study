@@ -1,7 +1,6 @@
 package spring.jpa.standard.hellojpa.entity;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,7 +20,7 @@ import jakarta.persistence.Table;
  *    - AUTO : 방언에 따라 자동 지정 기본값 :
  *
  */
-@Entity
+//@Entity
 @Table(name = "member3")
 public class Member3 {
 

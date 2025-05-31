@@ -1,7 +1,6 @@
 package spring.jpa.standard.jpashop.domain;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +12,7 @@ import spring.jpa.standard.hellojpa.type.OrderStatus;
 
 import java.time.LocalDateTime;
 
-@Entity
+//@Entity
 @Table(name = "ORDERS")
 public class Order {
     @Id
