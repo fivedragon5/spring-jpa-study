@@ -7,7 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import spring.jpa.SpringJpaApplication;
-import spring.jpa.standard.hellojpa.entity.Member;
+import spring.jpa.standard.jpashop.domain.Member;
 
 /**
  * 데이터 베이스 스키마 자동 생성

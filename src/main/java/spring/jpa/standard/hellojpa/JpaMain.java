@@ -5,9 +5,8 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.stereotype.Component;
 import spring.jpa.SpringJpaApplication;
-import spring.jpa.standard.hellojpa.entity.Member;
+import spring.jpa.standard.jpashop.domain.Member;
 
 /**
  * 1. EntityManagerFactory 애플리케이션 전체에서 하나만 생성해서 공유
@@ -20,7 +19,7 @@ import spring.jpa.standard.hellojpa.entity.Member;
  *  3. JPQL은 엔티티 객체를 대상으로 쿼리
  *  4. SQL은 데이터베이스 테이을 대상으로 쿼린
  */
-@Component
+//@Component
 public class JpaMain {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(SpringJpaApplication.class, args);
