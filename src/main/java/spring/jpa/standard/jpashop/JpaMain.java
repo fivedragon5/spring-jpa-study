@@ -6,7 +6,8 @@ import jakarta.persistence.EntityTransaction;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import spring.jpa.SpringJpaApplication;
-import spring.jpa.standard.jpashop.domain.Member;
+import spring.jpa.standard.jpashop.domain.Order;
+import spring.jpa.standard.jpashop.domain.OrderItem;
 
 //@Component
 public class JpaMain {
@@ -17,8 +18,14 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
+            Order order = new Order();
+
+            OrderItem orderItem = new OrderItem();
+            orderItem.setOrder(order);
+
+            em.persist(order);
+
             tx.commit();
-            System.out.println("Entity saved successfully using EntityManagerFactory directly!");
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {
                 tx.rollback();

@@ -1,10 +1,11 @@
 package spring.jpa.standard.jpashop.domain;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-//@Entity
+@Entity
 @Table(name = "ITEM")
 public class Item {
     @Id

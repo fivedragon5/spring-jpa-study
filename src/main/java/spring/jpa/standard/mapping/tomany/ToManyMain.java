@@ -12,7 +12,7 @@ import spring.jpa.standard.mapping.tomany.domain.ToManyTeam;
 
 import java.util.List;
 
-@Component
+//@Component
 public class ToManyMain {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(SpringJpaApplication.class, args);
