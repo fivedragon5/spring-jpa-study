@@ -5,12 +5,11 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.stereotype.Component;
 import spring.jpa.SpringJpaApplication;
 import spring.jpa.standard.mapping.toone.domain.ToOneMember;
 import spring.jpa.standard.mapping.toone.domain.ToOneTeam;
 
-@Component
+//@Component
 public class ToOneMain {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(SpringJpaApplication.class, args);
