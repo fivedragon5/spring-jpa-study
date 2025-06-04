@@ -9,7 +9,7 @@ import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+//@Entity
 public class ManyToManyProduct {
     @Id @GeneratedValue
     @Column(name = "PRODUCT_ID")

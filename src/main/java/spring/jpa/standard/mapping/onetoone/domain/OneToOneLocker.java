@@ -6,7 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
-@Entity
+//@Entity
 public class OneToOneLocker {
     @Id @GeneratedValue
     @Column(name = "LOCKER_ID")

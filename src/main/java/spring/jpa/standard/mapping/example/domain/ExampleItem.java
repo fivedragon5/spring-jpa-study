@@ -1,18 +1,26 @@
-package spring.jpa.standard.jpashop.domain;
+package spring.jpa.standard.mapping.example.domain;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.ManyToMany;
 
-//@Entity
-@Table(name = "ITEM")
-public class Item {
-    @Id
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+public class ExampleItem {
+    @Id @GeneratedValue
     @Column(name = "ITEM_ID")
     private Long id;
+
     private String name;
     private int price;
     private int stockQuantity;
+
+    @ManyToMany(mappedBy = "items")
+    private List<ExampleCategory> categories = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -44,5 +52,13 @@ public class Item {
 
     public void setStockQuantity(int stockQuantity) {
         this.stockQuantity = stockQuantity;
+    }
+
+    public List<ExampleCategory> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<ExampleCategory> categories) {
+        this.categories = categories;
     }
 }

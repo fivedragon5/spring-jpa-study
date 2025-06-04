@@ -12,7 +12,7 @@ import jakarta.persistence.ManyToOne;
  *      - 다대다 관계는 중간 테이블을 통해서 다대일, 일대다 관계로 풀어내는것이 좋음
  *      - @ManyToMany -> @ManyToOne, @OneToMany로 변경
  */
-@Entity
+//@Entity
 public class ManyToManyMemberProduct {
 
     @Id @GeneratedValue

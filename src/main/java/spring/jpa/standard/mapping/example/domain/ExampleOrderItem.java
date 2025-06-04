@@ -1,27 +1,25 @@
-package spring.jpa.standard.jpashop.domain;
+package spring.jpa.standard.mapping.example.domain;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 
-//@Entity
-@Table(name = "ORDERITEM")
-public class OrderItem {
-    @Id
-    @GeneratedValue
+@Entity
+public class ExampleOrderItem {
+    @Id @GeneratedValue
     @Column(name = "ORDER_ITEM_ID")
     private Long id;
 
     @ManyToOne
     @JoinColumn(name = "ORDER_ID")
-    private Order order;
+    private ExampleOrders order;
 
     @ManyToOne
-    @Column(name = "ITEM_ID")
-    private Item item;
+    @JoinColumn(name = "ITEM_ID")
+    private ExampleItem item;
 
     private int orderPrice;
     private int count;
@@ -34,19 +32,19 @@ public class OrderItem {
         this.id = id;
     }
 
-    public Order getOrder() {
+    public ExampleOrders getOrder() {
         return order;
     }
 
-    public void setOrder(Order order) {
+    public void setOrder(ExampleOrders order) {
         this.order = order;
     }
 
-    public Item getItem() {
+    public ExampleItem getItem() {
         return item;
     }
 
-    public void setItem(Item item) {
+    public void setItem(ExampleItem item) {
         this.item = item;
     }
 

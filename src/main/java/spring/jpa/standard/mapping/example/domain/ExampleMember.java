@@ -1,25 +1,24 @@
-package spring.jpa.standard.jpashop.domain;
+package spring.jpa.standard.mapping.example.domain;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import spring.jpa.standard.mapping.example.domain.ExampleOrders;
 
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
-//@Table(name = "MEMBER")
-public class Member {
-    @Id
-    @GeneratedValue
+@Entity
+public class ExampleMember {
+    @Id @GeneratedValue
     @Column(name = "MEMBER_ID")
     private Long id;
+
     private String name;
     private String city;
     private String street;
-    private String zipCode;
+    private String zipcode;
 
     @OneToMany(mappedBy = "member")
     private List<ExampleOrders> orders = new ArrayList<>();
@@ -56,11 +55,19 @@ public class Member {
         this.street = street;
     }
 
-    public String getZipCode() {
-        return zipCode;
+    public String getZipcode() {
+        return zipcode;
     }
 
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public List<ExampleOrders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<ExampleOrders> orders) {
+        this.orders = orders;
     }
 }
