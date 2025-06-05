@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-@Entity
+//@Entity
 public class ExampleOrderItem {
     @Id @GeneratedValue
     @Column(name = "ORDER_ITEM_ID")

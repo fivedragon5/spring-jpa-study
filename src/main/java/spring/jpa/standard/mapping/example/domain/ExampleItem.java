@@ -9,7 +9,7 @@ import jakarta.persistence.ManyToMany;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+//@Entity
 public class ExampleItem {
     @Id @GeneratedValue
     @Column(name = "ITEM_ID")

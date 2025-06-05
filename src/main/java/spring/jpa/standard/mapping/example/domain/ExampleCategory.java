@@ -13,7 +13,7 @@ import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+//@Entity
 public class ExampleCategory {
     @Id @GeneratedValue
     @Column(name = "CATEGORY_ID")

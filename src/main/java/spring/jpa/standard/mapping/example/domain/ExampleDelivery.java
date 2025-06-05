@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import spring.jpa.standard.mapping.example.type.ExampleStatus;
 
-@Entity
+//@Entity
 public class ExampleDelivery {
     @Id @GeneratedValue
     @Column(name = "DELIVERY_ID")

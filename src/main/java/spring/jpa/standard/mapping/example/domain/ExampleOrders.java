@@ -1,7 +1,6 @@
 package spring.jpa.standard.mapping.example.domain;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
@@ -16,7 +15,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+//@Entity
 public class ExampleOrders {
     @Id @GeneratedValue
     @Column(name = "ORDER_ID")

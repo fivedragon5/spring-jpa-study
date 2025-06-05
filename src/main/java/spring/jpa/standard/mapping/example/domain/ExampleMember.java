@@ -9,7 +9,7 @@ import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+//@Entity
 public class ExampleMember {
     @Id @GeneratedValue
     @Column(name = "MEMBER_ID")
