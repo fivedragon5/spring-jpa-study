@@ -5,10 +5,12 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
 import spring.jpa.SpringJpaApplication;
-import spring.jpa.advanced.strategy.domian.JoinMovie;
+import spring.jpa.advanced.strategy.cascade.domain.Child;
+import spring.jpa.advanced.strategy.cascade.domain.Parent;
 
-//@Component
+@Component
 public class JoinMain {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(SpringJpaApplication.class, args);
@@ -17,19 +19,14 @@ public class JoinMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-            JoinMovie movie = new JoinMovie();
-            movie.setDirector("Christopher Nolan");
-            movie.setActor("Leonardo DiCaprio");
-            movie.setName("Inception");
-            movie.setPrice(10000);
+            Child child1 = new Child();
+            Child child2 = new Child();
 
-            em.persist(movie);
+            Parent parent = new Parent();
+            parent.addChild(child1);
+            parent.addChild(child2);
 
-            em.flush();
-            em.clear();
-
-            JoinMovie findMovie = em.find(JoinMovie.class, movie.getId()); // 영속성 컨텍스트에 저장된 엔티티를 조회
-            System.out.println("영속성 컨텍스트에 저장된 엔티티: " + findMovie);
+            em.persist(parent);
 
             tx.commit();
 
