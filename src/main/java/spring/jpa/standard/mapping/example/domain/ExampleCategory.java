@@ -1,7 +1,7 @@
 package spring.jpa.standard.mapping.example.domain;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -19,7 +19,7 @@ public class ExampleCategory {
     @Column(name = "CATEGORY_ID")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PARENT_ID")
     private ExampleCategory parent; // 상위 카테고리
 
@@ -28,7 +28,7 @@ public class ExampleCategory {
 
     private String name;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "CATEGORY_ITEM",
             joinColumns = @JoinColumn(name = "CATEGORY_ID"),
             inverseJoinColumns = @JoinColumn(name = "ITEM_ID")

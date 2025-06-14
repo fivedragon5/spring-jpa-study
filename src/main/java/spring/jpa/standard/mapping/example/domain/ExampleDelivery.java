@@ -1,9 +1,9 @@
 package spring.jpa.standard.mapping.example.domain;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
@@ -22,7 +22,7 @@ public class ExampleDelivery {
     @Enumerated(value = EnumType.STRING)
     private ExampleStatus status;
 
-    @OneToOne(mappedBy = "delivery")
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
     private ExampleOrders orders;
 
     public Long getId() {
