@@ -1,4 +1,4 @@
-package spring.jpa.valuetype.embedded;
+package spring.jpa.valuetype.domain.embedded;
 
 import jakarta.persistence.Embeddable;
 import lombok.Getter;
