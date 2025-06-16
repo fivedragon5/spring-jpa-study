@@ -1,6 +1,7 @@
 package spring.jpa.jpql.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -17,9 +18,14 @@ public class MemberJpql {
     private String username;
     private int age;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TEAM_ID")
     private TeamJpql team;
+
+    public void changeTeam(TeamJpql team) {
+        this.team = team;
+        team.getMembers().add(this);
+    }
 
     @Override
     public String toString() {
