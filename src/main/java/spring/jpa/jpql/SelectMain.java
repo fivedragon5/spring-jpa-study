@@ -10,6 +10,7 @@ import spring.jpa.SpringJpaApplication;
 import spring.jpa.jpql.domain.AddressJpql;
 import spring.jpa.jpql.domain.MemberJpql;
 import spring.jpa.jpql.domain.OrderJpql;
+import spring.jpa.jpql.dto.MemberJpqlDTO;
 
 import java.util.List;
 
@@ -52,7 +53,7 @@ public class SelectMain {
 
             // DTO로 뽑기
             List<MemberJpqlDTO> list = em.createQuery(
-                    "select new spring.jpa.jpql.MemberJpqlDTO(m.username, m.age) from MemberJpql m"
+                    "select new spring.jpa.jpql.dto.MemberJpqlDTO(m.username, m.age) from MemberJpql m"
                             , MemberJpqlDTO.class)
                     .getResultList();
 

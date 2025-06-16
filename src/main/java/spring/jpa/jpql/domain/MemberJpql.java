@@ -21,5 +21,13 @@ public class MemberJpql {
     @JoinColumn(name = "TEAM_ID")
     private TeamJpql team;
 
-
+    @Override
+    public String toString() {
+        return "MemberJpql{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", age=" + age +
+                ", team=" + team +
+                '}';
+    }
 }

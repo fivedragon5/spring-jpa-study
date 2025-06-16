@@ -1,4 +1,4 @@
-package spring.jpa.jpql;
+package spring.jpa.jpql.dto;
 
 import lombok.Getter;
 import lombok.Setter;
