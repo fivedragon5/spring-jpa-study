@@ -13,7 +13,7 @@ import spring.jpa.jpql.domain.TeamJpql;
 import java.util.List;
 
 @Component
-public class FetchJoinMain {
+public class FetchJoin2Main {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(SpringJpaApplication.class, args);
         EntityManagerFactory emf = context.getBean(EntityManagerFactory.class);
@@ -56,48 +56,46 @@ public class FetchJoinMain {
             em.flush();
             em.clear();
 
-            // N + 1 문제
-            String query = "select m From MemberJpql m ";
-            List<MemberJpql> result = em.createQuery(query, MemberJpql.class)
+            String query = "select t From TeamJpql t join fetch t.members m";
+            List<TeamJpql> result = em.createQuery(query, TeamJpql.class)
                     .getResultList();
-            for (MemberJpql m : result) {
-                // System.out.println("m = " + m.getUsername() + ", teamName = " + m.getTeam().getName());
-                // 회원1, 팀A(SQL)
-                // 회원2, 팀A(1차캐시)
-                // 회원3, 팀B(SQL)
-
-                // 회원 100명 -> N + 1
-                // 최악의 경우 : 회원 조회 쿼리 1번 + 팀 조회 쿼리 N번
-            }
-
-            System.out.println("====================");
-
-            // Fetch Join
-            String fetchJoinQuery = "select m From MemberJpql m join fetch m.team";
-            List<MemberJpql> fetchJoinResult = em.createQuery(fetchJoinQuery, MemberJpql.class)
-                    .getResultList();
-            for (MemberJpql m : fetchJoinResult) {
-                // team은 proxy가 아니라 실제 엔티티가 조회된다.
-                System.out.println("m = " + m.getUsername() + ", teamName = " + m.getTeam().getName());
+            for (TeamJpql m : result) {
+                System.out.println("Team Name: " + m.getName());
+                for (MemberJpql member : m.getMembers()) {
+                    System.out.println("  Member Username: " + member.getUsername());
+                }
             }
 
             em.flush();
             em.clear();
 
-            System.out.println("==================== 55");
+            System.out.println("========================== 77 ");
 
-            // 컬렉션 fetch join
-            String collectionFetchJoinQuery = "select t from TeamJpql t join fetch t.members";
+            // 컬렉션 fetch join 의 페이징
+            // 모든 데이터를 조회한 뒤 메모리에서 페이징 처리 -> 사용 X
+            //String collectionFetchJoinQuery = "select t from TeamJpql t join fetch t.members";
+
+            // 쿼리 수정 - 1
+            // String collectionFetchJoinQuery = "select m from MemberJpql m join fetch m.team t";
+
+            // 쿼리 수정 - 2 LAZY Loading 성능 이슈
+            // BatchSize 설정을 통해 성능 개선 가능
+            String collectionFetchJoinQuery = "select t from TeamJpql t";
+
             List<TeamJpql> collectionFetchJoinResult = em.createQuery(collectionFetchJoinQuery, TeamJpql.class)
+                    .setFirstResult(0)
+                    .setMaxResults(2)
                     .getResultList();
 
+            System.out.println("collectionFetchJoinResult = " + collectionFetchJoinResult.size());
+
             for (TeamJpql t : collectionFetchJoinResult) {
-                System.out.println("t = " + t.getName() + ", members = " + t.getMembers().size());
-                // hibernate 6버전 이상부터는 중복 제거가 기본값으로 설정되어 있다.
-                for (MemberJpql m : t.getMembers()) {
-                    System.out.println("member = " + m.getUsername());
+                System.out.println("Team Name: " + t.getName());
+                for (MemberJpql member : t.getMembers()) {
+                    System.out.println("  Member Username: " + member.getUsername());
                 }
             }
+
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {

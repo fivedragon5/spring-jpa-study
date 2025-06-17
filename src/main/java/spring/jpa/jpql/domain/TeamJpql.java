@@ -19,6 +19,7 @@ public class TeamJpql {
     private Long id;
     private String name;
 
+//    @BatchSize(size = 10)
     @OneToMany(mappedBy = "team")
     private List<MemberJpql> members = new ArrayList<>();
 }
